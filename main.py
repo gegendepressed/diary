@@ -6,7 +6,8 @@ print("\n >>>>>>>>>>>>> Menu <<<<<<<<<<<<<<<")
 print(">> 1. View Entries <<")
 print(">> 2. Add Entries <<")
 print(">> 3. Remove All Entries<<")
-print(">> 4. Remove a specific line <<")
+print(">> 4. Encrypt Entries <<")
+print(">> 5. Decrypt Entries <<")
 
 choice = input("Enter a choice : ")
 
@@ -26,17 +27,10 @@ elif choice == "2":
         print("Entry added successfully")
 elif choice =="3":
         os.remove(filename)
-elif choice == "4":
-     deletelines= int(input("Enter the line index you want to delete : "))
-     with open(filename,"r") as file:
-         lines = file.readlines()
-     if 1 <= deletelines <= len(lines):
-        with open(filename, "w") as file:
-            for i, line in enumerate(lines, start=1):
-                if i != deletelines:
-                    file.write(line)
-        print("Line removed successfully")
-     else:
-        print("Not a valid choice")
+elif choice =="4":
+        os.system(f"gpg --symmetric {filename}")
+        print("File encrypted successfully.")
+elif choice =="5":
+        os.system(f"gpg -d {filename}")     
 else :
      print("Well, thank you for testing this humble program.")
