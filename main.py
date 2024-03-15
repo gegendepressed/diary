@@ -13,16 +13,13 @@ choice = input("Enter a choice : ")
 
 if choice == "1":
         print("Enter the file you want to view: ")
-        filename = input("")    
-        with open(filename, "r") as file:
-             content = file.read()
-             print(content)
-        if os.path.exists(filename):
+        filename = input("")
+        if os.path.exists(filename): 
                 os.system(f"gpg -d {filename}")
 elif choice == "2":
         print("To proceed you would have to create a file to keep the entries stored : ")
         filename = input("")
-  
+
         with open(filename,"a") as file: 
                 current_date= datetime.datetime.now()
                 date = str(current_date)
