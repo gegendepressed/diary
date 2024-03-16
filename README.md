@@ -3,6 +3,11 @@
 A terminal based python program that can be used to make entries with GPG encryption.
 
 ## Installation
+Pytermgui has been used in this program so import it!
+
+```python
+pip install pytermgui
+``` 
 
 Use Git command to clone the repository and it should work!
 
